@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+        body{
+            font-family: 'Unbounded', cursive;
+            background-image: url("https://onlinefilmcourses8.com/wp-content/uploads/2020/04/film-making.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        input{
+            border-radius: 5px;
+            border-color: cornflowerblue;
+            background-color:cornsilk;
+            width: 225px;
+            height: 25px;
+            font-family: 'Unbounded', cursive;
+            border: none;
+            
+
+        }
+        #main1{
+            margin-top: 18%;
+        }
+        h1{
+            font-size: 350%;
+            color:rgb(78, 158, 147);
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div id="main1">
+    <h1>Create Your <br> First Project!</h1>
+    <form action="/createProject" method="POST">
+        <input type="text" placeholder="Project's Name" name="project_name"><br>
+        <input style="margin-top: 0.4%;" type="submit" value="CREATE!">
+        {{errorInside}}
+    </form>
+    </div>
+    </center>
+</body>
+</html>

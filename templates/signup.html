@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+        body{
+            font-family: 'Unbounded', cursive;
+            background-image: url(https://blog.academyart.edu/wp-content/uploads/2019/06/behind-the-scenes-technical.jpg);
+        }
+        input{
+            font-family: 'Unbounded', cursive;
+            border-radius: 15%;
+            border: none;
+        }
+        #main1{
+            margin-top: 12%;
+            margin-right: 32%;
+        }
+        form {
+            width: 550px;
+            height: 300px;
+            margin: auto;
+            position: relative;
+        } 
+        input{
+            border-radius: 5px;
+            border-color: cornflowerblue;
+            background-color:rgba(255, 248, 220,40%);
+            width: 225px;
+            height: 25px;
+            font-family: 'Unbounded', cursive;
+            border: none;
+            
+            
+
+        } 
+        h1{
+            font-size: 300%;
+        }   
+    </style>
+</head>
+<body>
+    <button style="font-family: 'Unbounded', cursive; border: none; background-color:rgba(50.2%, 50.2%, 50.2%,20%);" onclick="location.replace('/')">go back home</button>
+    <center>
+        <div id="main1" >
+        <h1>Sign-Up</h1>
+    <form action="/signup" method='POST'>
+        <input  type="text" name="username" placeholder="username" required><br>
+        <input style="margin-top: 1%;"type="password" name="password" placeholder="Password" id="inputLog" required><br>
+        <input style="margin-top: 1%;"type="password" name="password2" placeholder="confirm password" required><br>
+        <input style="margin-top: 1%;"type="submit" value="Signup" id="inputLog">
+        <h4 style="color: red;">{{error}}</h4>
+    </form>
+        </div>
+    </center>
+</body>
+</html>

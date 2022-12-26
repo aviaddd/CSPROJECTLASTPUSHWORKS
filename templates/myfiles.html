@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+        body{
+            font-family: 'Unbounded', cursive;
+            background-image: url(https://newdawnfilm.com/wp-content/uploads/2018/03/film-production.jpg);
+            background-repeat:no-repeat;
+            background-size: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <button style="font-family: 'Unbounded', cursive; border: none; background-color:rgba(50.2%, 50.2%, 50.2%,20%);" onclick="location.replace('/logout')">Log-Out</button>
+    <button style="font-family: 'Unbounded', cursive; border: none; background-color:rgba(50.2%, 50.2%, 50.2%,20%);" onclick="location.replace('/editprofile')">Edit Profile</button>
+    <center>
+    <h1> {{username}}'s Files:</h1><br>
+    {%for project in projects%}
+    <div style="border:1px solid black;" onclick="location.replace('/projectPage?id={{project.id}}')"> {{project.project_name}}</div>
+    {%endfor%}
+    <button style="margin-top: 1%; font-family: 'Unbounded', cursive; border: none; background-color:rgba(50.2%, 50.2%, 50.2%,20%);" onclick="location.replace('/createProject')">Create Your New Project!</button>
+    
+    </center>
+</body>
+</html>
