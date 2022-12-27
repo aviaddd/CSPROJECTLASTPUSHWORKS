@@ -30,7 +30,7 @@
     <h1> {{project.project_name}}:</h1><br>
     Your Files:<br>
     {%for file in files%}
-    <div style="border:1px solid black;">{{file.file_name}}</div>
+    <div onclick="location.replace('/filePage?id={{file.id}}')" style="border:1px solid black;">{{file.file_name}}</div>
     {%endfor%}
     People Shared With Project:<br>
     {%for shared_user in shared_users%}

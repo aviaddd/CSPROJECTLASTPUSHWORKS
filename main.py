@@ -199,6 +199,16 @@ def delete_user():
         return resp
     else:
         return redirect('/login')
+
+@app.route('/filePage')
+def file_page():
+    args=request.args
+    id=args.get('id')
+    file=file_by_id(id)
+    with open(str(file.id)+'.txt', 'r') as file:
+        data = file.read()
+    return render_template('file_page.html',data=data)
+
     
 
 

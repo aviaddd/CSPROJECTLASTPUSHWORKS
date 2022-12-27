@@ -71,7 +71,14 @@ def create_all_project(project_name,owner):
 	create_file('script',project.id)
 	create_file('script2',project.id)
 	create_file('script3',project.id)
+	files=all_files_by_project(project.id)
+	for file in files:
+		with open(str(file.id)+'.txt', 'w') as f:
+			f.write('Your script file: '+str(file.id))
 	return 'this good'
+
+def file_by_id(file_id):
+	return session.query(File).filter_by(id=file_id).first()
 
 def all_files_by_project(project_id):
 	return session.query(File).filter_by(project_id=project_id).all()
