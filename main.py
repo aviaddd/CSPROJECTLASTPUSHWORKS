@@ -200,15 +200,36 @@ def delete_user():
     else:
         return redirect('/login')
 
-@app.route('/filePage')
+@app.route('/filePage',methods=['GET','POST'])
 def file_page():
-    args=request.args
-    id=args.get('id')
-    file=file_by_id(id)
-    with open(str(file.id)+'.txt', 'r') as file:
-        data = file.read()
-    return render_template('file_page.html',data=data)
+    if request.method=='GET':
+        args=request.args
+        id=args.get('id')
+        print(id)
+        file=file_by_id(id)
+        with open(str(file.id)+'.txt', 'r') as file:
+            data = file.read()
+            print(data)
+        
+        return render_template('file_page.html',data=data,id=id)
+    else:
+        data = request.get_json()
+        event = data['event']
+        textareavalue = data['textareavalue']
+        args=request.args
+        id=args.get('id')
+        with open(str(id)+'.txt', 'w') as f:
+            f.write(textareavalue)
+        return render_template('file_page.html',data=data,id=id)
 
+@app.route('/key-event', methods=['POST'])
+def key_event():
+    data = request.get_json()
+    event = data['event']
+    textareavalue = data['textareavalue']
+
+    # Do something with the key event data
+    return 'Success'
     
 
 

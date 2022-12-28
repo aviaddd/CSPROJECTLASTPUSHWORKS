@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    document.onload(document.getElementById('docs1').value="{{data}}")
+    
+    function updateVar() {
+
+document.getElementById("textarea1").value="{{data}}"
+
+}
 </script>
 <head>
     <meta charset="UTF-8">
@@ -9,8 +16,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <textarea id="docs1">
-    </textarea>
+<body onload="updateVar()">
+    <textarea id="textarea1"   style="width: 1920px; height: 1080px;"> </textarea>
 </body>
+<body onkeypress="keyPress(event)" >
+    <!-- Your HTML content goes here -->
+    <script>
+        
+      function keyPress(event) {
+        if (document.getElementById("textarea1") === document.activeElement) {
+    // Your code here
+  
+        console.log(`${event.key} pressed`);
+        $.ajax({
+          type: 'POST',
+          url: '/filePage?id={{id}}',
+          data: JSON.stringify({event: 'keypress', textareavalue:document.getElementById('textarea1').value}),
+          contentType: 'application/json',
+          success: function(response) {
+            console.log(response);
+          }
+        });
+        }
+      }
+
+    </script>
+  </body>
 </html>
